@@ -1,0 +1,39 @@
+<div class="full-wrapper">
+    <div class="card">
+
+        <div class="card-title bg-primary text-white text-left">
+            <i>lock_open</i>
+            <span>Log In</span>
+        </div>
+
+        <div class="card-content">
+            <form novalidate @submit.stop.prevent="submit">
+                <div class="floating-label field-row">
+                    <input required class="full-width" v-model="email" v-bind:class="{ 'has-error': error_email }"/>
+                    <label>E-mail address</label>
+                </div>
+                <div class="floating-label field-row">
+                    <input required class="full-width" v-model="password" type="password" v-bind:class="{ 'has-error': error_password }"/>
+                    <label>Password</label>
+                </div>
+                <button class="bt-login secondary" @click.native="submit" :disabled="loading">
+                    <div class="bt-loading">
+                        <template v-if="loading">
+                            <spinner :size="20" name="ios" color="#fff"></spinner>
+                        </template>
+                        <template v-if="!loading">
+                            Log In
+                        </template>
+                    </div>
+                </button>
+            </form>
+        </div>
+
+        <div class="card-footer bg-blue-grey-1 text-primary">
+            <ul>
+                <li><router-link to="/account/forgot">Forgot Password?</router-link></li>
+            </ul>
+        </div>
+                
+    </div>
+</div>

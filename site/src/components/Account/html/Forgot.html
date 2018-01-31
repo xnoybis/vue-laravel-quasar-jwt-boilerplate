@@ -1,0 +1,40 @@
+<div class="full-wrapper">
+    <div class="card">
+
+        <div class="card-title bg-primary text-white text-left">
+            <i>lock</i>
+            <span>Forgot Password</span>
+        </div>
+
+        <div class="card-content">
+            <template v-if="!completed">
+                <form novalidate @submit.stop.prevent="submit">
+                    <div class="floating-label field-row">
+                        <input required class="full-width" v-model="email" v-bind:class="{ 'has-error': error_email }"/>
+                        <label>E-mail address</label>
+                    </div>
+                    <button class="bt-forgot secondary" @click.native="submit" :disabled="loading">
+                        <div class="bt-loading">
+                            <template v-if="loading">
+                                <spinner :size="20" name="ios" color="#fff"></spinner>
+                            </template>
+                            <template v-if="!loading">
+                                Reset Password
+                            </template>
+                        </div>
+                    </button>
+                </form>
+            </template>
+            <template v-if="completed">
+                A reset link has been sent to your e-mail address. Open the link to reset your password.
+            </template>
+        </div>
+
+        <div class="card-footer bg-blue-grey-1 text-primary">
+            <ul>
+                <li><router-link to="/account/login">Log In</router-link></li>
+            </ul>
+        </div>
+                
+    </div>
+</div>

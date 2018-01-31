@@ -1,0 +1,247 @@
+html, body, #q-app {
+    min-height: 100%;
+    font-size: 14px;
+}
+
+#q-app {
+    display: flex;
+    flex-direction: column;
+}
+
+.full-wrapper {
+    width: 100%;
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.content {
+    background-color: #f0f0f0;
+    width: 100%;
+    display: flex;
+    flex: 1;
+}
+
+.list > .item:first-child, .list > .q-collapsible:first-child {
+    margin-top: 0;
+}
+
+.list > .item:last-child, .list > .q-collapsible:last-child {
+    margin-bottom: 0;
+}
+
+.card {
+    max-width: 300px;
+}
+
+.card-footer {
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: block;
+        text-align: center;
+        padding: 8px;
+        font-size: 13px;
+
+        li {
+            display: inline-block;
+
+            a:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+.bt-login, .bt-forgot, .bt-reset, .bt-create {
+    min-width: 100px;
+    margin: auto;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.bt-forgot, .bt-reset, .bt-create {
+    min-width: 160px;
+}
+
+.field-row {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.floating-label input {
+    padding-top: 1rem;
+
+}
+
+.q-tab-label {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.custom-icon:before {
+    font-size: 1.3rem;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    box-sizing: content-box;
+    font-weight: normal;
+    font-style: normal;
+    text-transform: none;
+    vertical-align: middle;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-feature-settings: 'liga';
+    font-feature-settings: 'liga';
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+    padding-top: 0.1rem;
+    padding-bottom: 0.1rem;
+    text-align: center;
+}
+
+.page {
+    padding: 6px;
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+
+    .column {
+        margin-left: 6px;
+        margin-right: 6px;
+        padding-top: 6px;
+        padding-bottom: 6px;
+    }
+
+    .card {
+        margin: 0px;
+        margin-top: 6px;
+        margin-bottom: 6px;
+        overflow-y: visible;
+        max-width: 100%;
+        display: flex;
+        flex: 1 1 auto;
+        flex-direction: column;
+
+        &:first-child {
+            margin-top: 0;
+        }
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        .card-content {
+            display: flex;
+            flex: 1;
+            padding: 12px;
+            &.tabled {
+                padding: 0px;
+            }
+        }
+
+        .card-title {
+            display: flex;
+            flex-direction: row;
+            flex: 0 1 auto;
+        }
+        
+    }
+
+    .spinner-holder {
+        display: flex;
+        flex: 1;
+        justify-content: center;
+        align-items: center;
+    }
+
+    form {
+        width: 100%;
+    }
+
+}
+    
+.q-data-table {
+    display: flex;
+    flex: 1 1 auto;
+    border: 0px;
+    flex-direction: column;
+
+    .label {
+        padding: 6px;
+        width: 75px;
+        display: flex;
+        flex: 0 1 auto;
+        justify-content: center;
+    }
+}
+.q-data-table-head {
+    overflow: display;
+}
+.q-data-table-toolbar {
+    background-color: #c0c0c0;
+    flex: 0 1 auto;
+}
+.q-data-table-toolbar:nth-child(1), .q-data-table-toolbar:nth-child(2) {
+    display: none;
+}
+.q-data-table-container {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    border-top: solid 1px #a0a0a0;
+    margin-top: 0;
+
+    th, td {
+        border-right: solid 1px #c0c0c0;
+        &:last-child {
+            border-right: 0;
+        }
+    }
+}
+.q-search {
+    flex: 0.5;
+}
+
+@media (min-width: 480px) {
+
+    .q-toast-container {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-direction: row;
+
+        .q-toast {
+            margin-left: auto;
+            margin-right: auto;
+            flex: 1;
+            font-size: 13px;
+            i {
+                font-size: 24px;
+                margin-right: 16px;
+            }
+            a {
+                i {
+                    margin-right: 0;
+                }
+            }
+        }
+    }
+
+}
+

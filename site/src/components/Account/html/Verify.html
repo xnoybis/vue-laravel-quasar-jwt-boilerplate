@@ -1,0 +1,48 @@
+<div class="full-wrapper">
+    <div class="card">
+        
+        <div class="card-title bg-primary text-white text-left">
+            <i>settings</i>
+            <span>Set Your Password</span>
+        </div>
+
+        <div class="card-content bg-white">
+            <form novalidate @submit.stop.prevent="submit" v-if="!completed">
+
+                <div class="floating-label field-row">
+                    <input class="full-width" v-model="details.email" required v-bind:class="{ 'has-error': error_email }"/>
+                    <label>E-mail Address</label>
+                </div>
+                <div class="floating-label field-row">
+                    <input class="full-width" required v-model="details.password" v-bind:class="{ 'has-error': error_password }" type="password"/>
+                    <label>Your Password</label>
+                </div>
+                <div class="floating-label field-row">
+                    <input class="full-width" required v-model="details.confirm" v-bind:class="{ 'has-error': error_confirm }" type="password"/>
+                    <label>Confirm Password</label>
+                </div>
+
+                <button class="bt-reset secondary" @click.native="submit" :disabled="loading">
+                    <div class="bt-loading">
+                        <template v-if="loading">
+                            <spinner :size="20" name="ios" color="#fff"></spinner>
+                        </template>
+                        <template v-if="!loading">
+                            Set Password
+                        </template>
+                    </div>
+                </button>
+            </form>
+            <div class="verify" v-if="completed">
+                <h5>Password Set</h5>
+                <p>You can now <router-link to="/account/login" class="text-primary">log in</router-link> to your account.</p>
+            </div>
+        </div>
+
+        <div class="card-footer bg-blue-grey-1 text-primary">
+            <ul>
+                <li><router-link to="/account/login">Log In</router-link></li>
+            </ul>
+        </div>
+    </div>
+</div>

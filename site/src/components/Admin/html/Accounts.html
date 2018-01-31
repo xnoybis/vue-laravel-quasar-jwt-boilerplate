@@ -1,0 +1,73 @@
+<div class="page row">
+    <div class="column auto">
+        <div class="card bg-white">
+            <div class="card-title bg-primary text-white text-left">
+                <span>Quick Account Create</span>
+            </div>
+            <div class="card-content">
+                <form novalidate @submit.stop.prevent="submit">
+                    <div class="floating-label field-row">
+                        <input required class="full-width" v-model="name" type="text" v-bind:class="{ 'has-error': error_name }"/>
+                        <label>Name</label>
+                    </div>
+                    <div class="floating-label field-row">
+                        <input required class="full-width" v-model="email" v-bind:class="{ 'has-error': error_email }"/>
+                        <label>E-mail address</label>
+                    </div>
+                    <button class="bt-create secondary" @click.native="submit" :disabled="loading">
+                        <div class="bt-loading">
+                            <template v-if="loading">
+                                <spinner :size="20" name="ios" color="#fff"></spinner>
+                            </template>
+                            <template v-if="!loading">
+                                Create Account
+                            </template>
+                        </div>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="column account-list width-4of5">
+        <div class="card bg-white">
+            <div class="card-content tabled">
+
+                <template v-if="!loaded">
+                    <div class='spinner-holder'>
+                        <spinner :size="40" name="puff"></spinner>
+                    </div>
+                </template>
+                <template v-if="loaded">
+                    <q-data-table :data="table" :config="config" :columns="columns" @refresh="getAccounts">
+
+                        <!-- Custom renderer for "message" column -->
+                        <template slot="col-message" scope="cell">
+                            <span class="light-paragraph">{{cell.data}}</span>
+                        </template>
+
+                        <!-- Custom renderer for "source" column -->
+                        <template slot="col-source" scope="cell">
+                            <span v-if="cell.data === 'Audit'" class="label text-white bg-primary">
+                                Audit
+                                <q-tooltip>Some data</q-tooltip>
+                            </span>
+                            <span v-else class="label text-white bg-negative">{{cell.data}}</span>
+                        </template>
+                        
+                        <!-- Custom renderer when user selected one or more rows -->
+                        <template slot="selection" scope="selection">
+                            <button class="primary clear" @click="changeMessage(selection)">
+                                <i>edit</i>
+                            </button>
+                            <button class="primary clear" @click="deleteRow(selection)">
+                                <i>delete</i>
+                            </button>
+                        </template>
+
+                    </q-data-table>
+                </template>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -7,6 +7,6 @@ export default {
 	RESET_URL: API_URL + 'auth/reset',
 	CREATE_URL: API_URL + 'admin/create',
 	REFRESH_URL: API_URL + 'auth/refresh',
-	ACCOUNTS_URL: API_URL + '/admin/accounts',
+	ACCOUNTS_URL: API_URL + 'admin/accounts',
 
 };

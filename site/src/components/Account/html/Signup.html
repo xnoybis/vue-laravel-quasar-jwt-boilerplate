@@ -2,19 +2,19 @@
     <div class="card">
 
         <div class="card-title bg-primary text-white text-left">
-            <i>lock_open</i>
-            <span>Log In</span>
+            <i>account_box</i>
+            <span>Register</span>
         </div>
 
         <div class="card-content">
             <form novalidate @submit.stop.prevent="submit">
                 <div class="floating-label field-row">
-                    <input required class="full-width" v-model="email" v-bind:class="{ 'has-error': error_email }"/>
-                    <label>E-mail address</label>
+                    <input required class="full-width" v-model="fullname" v-bind:class="{ 'has-error': error_fullname }"/>
+                    <label>Username</label>
                 </div>
                 <div class="floating-label field-row">
-                    <input required class="full-width" v-model="password" type="password" v-bind:class="{ 'has-error': error_password }"/>
-                    <label>Password</label>
+                    <input required class="full-width" v-model="email" v-bind:class="{ 'has-error': error_email }"/>
+                    <label>E-mail address</label>
                 </div>
                 <button class="bt-login secondary" @click.native="submit" :disabled="loading">
                     <div class="bt-loading">
@@ -22,7 +22,7 @@
                             <spinner :size="20" name="ios" color="#fff"></spinner>
                         </template>
                         <template v-if="!loading">
-                            Log In
+                            Create Account
                         </template>
                     </div>
                 </button>
@@ -31,7 +31,7 @@
 
         <div class="card-footer bg-blue-grey-1 text-primary">
             <ul>
-                <li><router-link to="/account/signup">Register</router-link></li> |
+                <li><router-link to="/account/login">Login</router-link></li> |
                 <li><router-link to="/account/forgot">Forgot Password?</router-link></li>
             </ul>
         </div>

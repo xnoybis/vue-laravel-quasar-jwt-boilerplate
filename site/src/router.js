@@ -70,6 +70,10 @@ export default new VueRouter({
 			component: load('Account/Login')
 		},
 		{
+			path: '/account/signup',
+			component: load('Account/Signup')
+		},
+		{
 			path: '/account/reset/:token',
 			component: load('Account/Reset')
 		},

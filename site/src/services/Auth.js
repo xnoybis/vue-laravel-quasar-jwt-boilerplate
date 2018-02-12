@@ -243,6 +243,17 @@ export default {
 		router.push('/account/login');
 	},
 
+	register (context, credentials) {
+		context.loading = true;
+
+		context.error_email = false;
+		context.error_fullname = false;
+		context.error_password = false;
+		context.error_confirm = false;
+
+		console.log('Test');
+	},
+
 	create (context, credentials) {
 
 		context.loading = true;
